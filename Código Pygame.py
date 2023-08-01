@@ -1,5 +1,6 @@
 import pygame
 import assets
+import random
 
 # ===== Inicialização =====
 # ----- Importa e inicia pacotes
@@ -16,6 +17,11 @@ jogando = True
 estado = 'tela inicial'
 dicionario = assets.load_assets()
 
+
+# Lista cores 
+cores_disponiveis = [(255, 0, 0), (0, 255, 0), (255, 255, 0), (0, 0, 255)]
+
+cor_sorteada = random.choices(cores_disponiveis, k=4)
 
 # ===== Loop principal =====
 while jogando:
@@ -37,6 +43,7 @@ while jogando:
         pygame.draw.rect(window, (255,255,0), (100,350,200,200))
         pygame.draw.rect(window, (0,0,255), (350,350,200,200))
         
+        cores_possiveis = [(255, 0, 0), (0, 255, 0), (255, 255, 0), (0, 0, 255)]
 
 
     
