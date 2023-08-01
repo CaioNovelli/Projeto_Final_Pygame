@@ -16,7 +16,7 @@ jogando = True
 estado = 'tela inicial'
 dicionario = assets.load_assets()
 
-imagem1 = pygame.image.load('vermelho_img')
+
 # ===== Loop principal =====
 while jogando:
     window.fill((0, 0, 0))  # Preenche com a cor preta
@@ -32,7 +32,7 @@ while jogando:
 
     elif estado == 'tela_preta':
         window.fill((0, 0, 0))  # Preenche com a cor preta
-        window.blit(imagem1, (0, 0))
+        
 
 
     
