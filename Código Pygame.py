@@ -21,12 +21,13 @@ while jogando:
         # ----- Verifica consequências
         if evento.type == pygame.QUIT:
             jogando = False
-
+    
     # ----- Gera saídas
     window.fill((0, 0, 0))  # Preenche com a cor preta
 
     # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
+
 
 # ===== Finalização =====
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
