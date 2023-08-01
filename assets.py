@@ -1,7 +1,7 @@
 import pygame
 import os
 import math
-import numpy
+#import numpy
 from settings import *
 
 BRANCO = (255, 255, 255)
@@ -31,10 +31,20 @@ class Botão:
     def clicked(self, mouse_x, mouse_y):
         return self.x <= mouse_x <= self.x + TAMANHODOBOTAO and self.y <= mouse_y <= self.y + TAMANHODOBOTAO
 
-
-
-WIDTH = 640
-HEIGHT = 500
+WIDTH = 650
+HEIGHT = 650
 FPS = 60
 TAMANHODOBOTAO = 200
 ANIMATION_SPEED = 20
+
+def load_assets():
+    
+    assets = {}
+    
+    # tela inicial
+    assets['tela inicial'] = pygame.image.load('assets/imgs/tela_inicial.png').convert()
+    assets['tela inicial'] = pygame.transform.scale(assets['tela inicial'], (WIDTH, HEIGHT))
+
+    return assets
+    
+

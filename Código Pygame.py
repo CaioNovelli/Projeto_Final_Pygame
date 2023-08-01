@@ -1,5 +1,5 @@
 import pygame
-
+import assets
 
 # ===== Inicialização =====
 # ----- Importa e inicia pacotes
@@ -13,7 +13,7 @@ pygame.display.set_caption('BEM VINDO AO JOGO DA MEMÓRIA!')
 
 # ----- Inicia estruturas de dados
 jogando = True
-
+dicionario = assets.load_assets()
 # ===== Loop principal =====
 while jogando:
     # ----- Trata eventos
@@ -21,9 +21,11 @@ while jogando:
         # ----- Verifica consequências
         if evento.type == pygame.QUIT:
             jogando = False
-    
+
     # ----- Gera saídas
+    
     window.fill((0, 0, 0))  # Preenche com a cor preta
+    window.blit(dicionario['tela inicial'], (0,0))
 
     # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
