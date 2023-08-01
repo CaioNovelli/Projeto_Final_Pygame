@@ -12,15 +12,15 @@ window = pygame.display.set_mode((650, 650))
 pygame.display.set_caption('BEM VINDO AO JOGO DA MEMÓRIA!')
 
 # ----- Inicia estruturas de dados
-game = True
+jogando = True
 
 # ===== Loop principal =====
-while game:
+while jogando:
     # ----- Trata eventos
-    for event in pygame.event.get():
+    for evento in pygame.event.get():
         # ----- Verifica consequências
-        if event.type == pygame.QUIT:
-            game = False
+        if evento.type == pygame.QUIT:
+            jogando = False
 
     # ----- Gera saídas
     window.fill((0, 0, 0))  # Preenche com a cor preta
