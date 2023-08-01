@@ -28,8 +28,11 @@ while jogando:
             if event.type == pygame.KEYDOWN:
                 if event.key == 13:
                     estado = 'tela_preta'
+
     elif estado == 'tela_preta':
         window.fill((0, 0, 0))  # Preenche com a cor preta
+        window.blit(assets[QUADRADO_VERMELHO_IMG], (0, 0))
+
 
     
 
