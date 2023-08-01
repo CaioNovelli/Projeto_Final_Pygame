@@ -1,6 +1,7 @@
 import pygame
 import assets
 import random
+import time
 
 # ===== Inicialização =====
 # ----- Importa e inicia pacotes
@@ -20,32 +21,77 @@ dicionario = assets.load_assets()
 
 # Lista cores 
 cores_disponiveis = [(255, 0, 0), (0, 255, 0), (255, 255, 0), (0, 0, 255)]
+lista_cores_sorteadas = []
+dicio_infos={
+    'vermelha':{
+        'cor':(255, 0, 0),
+        'pos':(100,100,200,200)
+    },
+    'verde':{
+        'cor':(0, 255, 0),
+        'pos':(350,100,200,200)
+    }, 
+    'azul':{
+        'cor':(0, 0, 255),
+        'pos':(350,350,200,200)
+    },
+    'amarelo':{
+        'cor':(255, 255, 0),
+        'pos':(100,350,200,200)
 
-cor_sorteada = random.choices(cores_disponiveis, k=4)
+    }
+}
+contador_acertos = 0
+
+lista_sorteio=['azul','verde','azul','amarelo']
+cor_atual=0
 
 # ===== Loop principal =====
 while jogando:
-    window.fill((0, 0, 0))  # Preenche com a cor preta
 
-    if estado == 'tela inicial':
+    
+    window.fill((0, 0, 0))  # Preenche com a cor preta
+    if estado =='sorteando':
+        sorteada = random.choice(list(dicio_infos.keys()))
+        lista_sorteio.append(sorteada)
+        cor_atual=0
+        estado = 'tela_preta'
+
+    elif estado == 'tela inicial':
         window.blit(dicionario['tela inicial'], (0, 0))
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 jogando = False
+                
             if event.type == pygame.KEYDOWN:
                 if event.key == 13:
-                    estado = 'tela_preta'
-
+                    estado = 'sorteando'
+                    t_inicial= time.time()
+                    
     elif estado == 'tela_preta':
         window.fill((0, 0, 0))  # Preenche com a cor preta
-        pygame.draw.rect(window, (255,0,0), (100,100,200,200))
-        pygame.draw.rect(window, (0,255,0), (350,100,200,200))
-        pygame.draw.rect(window, (255,255,0), (100,350,200,200))
-        pygame.draw.rect(window, (0,0,255), (350,350,200,200))
-        
-        cores_possiveis = [(255, 0, 0), (0, 255, 0), (255, 255, 0), (0, 0, 255)]
+        for cor,info in dicio_infos.items():
+
+            pygame.draw.rect(window,info['cor'], info['pos'])
+        if cor_atual < len(lista_sorteio):
+            cor = lista_sorteio[cor_atual]
+            info = dicio_infos[cor]
 
 
+
+            pygame.draw.rect(window,(100,100,100), info['pos'])        
+            t_final = time.time()
+
+            tempo_decorrido = (t_final-t_inicial)
+            if tempo_decorrido >1.5:
+                t_inicial = t_final
+                cor_atual+=1
+
+        else:
+            estado = 'aguardando_clique'
+
+    elif estado == 'aguardado_clique':
+        if 
     
 
     # ----- Gera saídas
