@@ -32,7 +32,10 @@ while jogando:
 
     elif estado == 'tela_preta':
         window.fill((0, 0, 0))  # Preenche com a cor preta
-        pygame.draw.rect(window, (255,0,0), (100,100,50,50))
+        pygame.draw.rect(window, (255,0,0), (100,100,200,200))
+        pygame.draw.rect(window, (0,255,0), (350,100,200,200))
+        pygame.draw.rect(window, (255,255,0), (100,350,200,200))
+        pygame.draw.rect(window, (0,0,255), (350,350,200,200))
         
 
 
