@@ -6,10 +6,35 @@ from settings import *
 
 
 
+
+from settings import *
+
+BRANCO = (255, 255, 255)
+PRETO = (0, 0, 0)
+CINZA = (40, 40, 40)
+AMARELO = (155, 155, 0)
+AMARELO_CLARO = (255, 255, 0)
+AZUL = (0, 0, 155)
+AZUL_CLARO = (0, 0, 255)
+VERDE = (0, 155, 0)
+VERDE_CLARO = (0, 255, 0)
+VERMELHO = (155, 0, 0)
+VERMELHO_CLARO = (255, 0, 0)
+COR_DO_FUNDO = PRETO
+
+
+pygame.mixer.init()
+
+
+HEIGHT = 650
+FPS = 60
+
 QUADRADO_VERMELHO_IMG = 'vermelho_img'
 QUADRADO_AZUL_IMG = 'azul_img'
 QUADRADO_AMARELO_IMG = 'amarelo_img'
 QUADRADO_VERDE_IMG = 'verde_img'
+
+
 
 
 
