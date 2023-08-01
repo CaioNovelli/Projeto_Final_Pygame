@@ -14,18 +14,26 @@ pygame.display.set_caption('BEM VINDO AO JOGO DA MEMÓRIA!')
 # ----- Inicia estruturas de dados
 jogando = True
 dicionario = assets.load_assets()
+
+
 # ===== Loop principal =====
 while jogando:
-    # ----- Trata eventos
-    for evento in pygame.event.get():
-        # ----- Verifica consequências
-        if evento.type == pygame.QUIT:
+
+    window.fill((0, 0, 0))  # Preenche com a cor preta
+    window.blit(dicionario['tela inicial'], (0,0))
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
             jogando = False
+        if event.type == pygame.KEYDOWN:
+            if event.key==pygame.K_KP_ENTER:
+                jogando = True
 
     # ----- Gera saídas
     
-    window.fill((0, 0, 0))  # Preenche com a cor preta
-    window.blit(dicionario['tela inicial'], (0,0))
+    
+
+    
 
     # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
