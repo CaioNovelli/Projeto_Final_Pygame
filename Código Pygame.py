@@ -1,6 +1,7 @@
 import pygame
 import assets
 
+
 # ===== Inicialização =====
 # ----- Importa e inicia pacotes
 import pygame

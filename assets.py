@@ -34,7 +34,8 @@ QUADRADO_AZUL_IMG = 'azul_img'
 QUADRADO_AMARELO_IMG = 'amarelo_img'
 QUADRADO_VERDE_IMG = 'verde_img'
 
-
+WIDTH = 650
+HEIGHT = 650
 
 
 
