@@ -91,7 +91,24 @@ while jogando:
             estado = 'aguardando_clique'
 
     elif estado == 'aguardado_clique':
-        if 
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                jogando = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            pos = pygame.mouse.get_pos()
+
+            # Cor apertada pelo usuario
+            
+            if 100 <= pos[0] <= 300 and 100 <= pos[1] <= 300:
+                cor_selecionada = 'vermelha'
+            elif 350 <= pos[0] <= 550 and 100 <= pos[1] <= 300:
+                cor_selecionada = 'verde'
+            elif 100 <= pos[0] <= 300 and 350 <= pos[1] <= 550:
+                cor_selecionada = 'amarelo'
+            elif 350 <= pos[0] <= 550 and 350 <= pos[1] <= 550:
+                cor_selecionada = 'azul'
+            else:
+                continue
     
 
     # ----- Gera saídas
