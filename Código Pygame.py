@@ -1,26 +1,32 @@
-#pacotes
-
 import pygame
-import random
-import os
-from os import path
+
+
+# ===== Inicialização =====
+# ----- Importa e inicia pacotes
+import pygame
 
 pygame.init()
-pygame.mixer.init()
 
+# ----- Gera tela principal
+window = pygame.display.set_mode((750, 750))
+pygame.display.set_caption('BEM VINDO AO JOGO DA MEMÓRIA!')
 
-LARGURA = 480
-ALTURA = 600
-FPS = 60
+# ----- Inicia estruturas de dados
+game = True
 
-TELA = pygame.display.set_mode((LARGURA, ALTURA))
+# ===== Loop principal =====
+while game:
+    # ----- Trata eventos
+    for event in pygame.event.get():
+        # ----- Verifica consequências
+        if event.type == pygame.QUIT:
+            game = False
 
+    # ----- Gera saídas
+    window.fill((0, 0, 0))  # Preenche com a cor preta
 
+    # ----- Atualiza estado do jogo
+    pygame.display.update()  # Mostra o novo frame para o jogador
 
-def init_screen(screen):
-    # Variável para o ajuste de velocidade
-    clock = pygame.time.Clock()
-
-    # Carrega o fundo da tela inicial
-    background = pygame.image.load(path.join(IMG_DIR, 'inicio.png')).convert()
-    background_rect = background.get_rect()
+# ===== Finalização =====
+pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
