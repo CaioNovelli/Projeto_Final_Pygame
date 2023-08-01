@@ -3,6 +3,7 @@
 # ----- Importa e inicia pacotes
 import pygame
 from assets import *
+from game_screen.py import*
 
 # ----- Gera tela principal
 #window = pygame.display.set_mode((LARGURA, ALTURA))
@@ -45,6 +46,9 @@ class Point:
         self.flash_colours = [AMARELO, AZUL, VERMELHO, VERDE]
         self.colours = [AMARELO_CLARO, AZUL_CLARO, VERMELHO_CLARO, VERDE_CLARO]
 
+
+
+        self.buttons = [Button(110, 50, DARKYELLOW),Button(330, 50, DARKBLUE),Button(110, 270, DARKRED),Button(330, 270, DARKGREEN)]
 
 
 
