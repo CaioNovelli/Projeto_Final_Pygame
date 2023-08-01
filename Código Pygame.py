@@ -8,7 +8,7 @@ import pygame
 pygame.init()
 
 # ----- Gera tela principal
-window = pygame.display.set_mode((750, 750))
+window = pygame.display.set_mode((650, 650))
 pygame.display.set_caption('BEM VINDO AO JOGO DA MEMÓRIA!')
 
 # ----- Inicia estruturas de dados
