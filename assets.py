@@ -2,6 +2,28 @@ import pygame
 import os
 from config import METEOR_WIDTH, METEOR_HEIGHT, SHIP_WIDTH, SHIP_HEIGHT, IMG_DIR, SND_DIR, FNT_DIR
 
+BRANCO = (255, 255, 255)
+PRETO = (0, 0, 0)
+CINZA = (40, 40, 40)
+AMARELO = (155, 155, 0)
+AMARELO_CLARO = (255, 255, 0)
+AZUL = (0, 0, 155)
+AZUL_CLARO = (0, 0, 255)
+VERDE = (0, 155, 0)
+VERDE_CLARO = (0, 255, 0)
+VERMELHO = (155, 0, 0)
+VERMELHO_CLARO = (255, 0, 0)
+COR_DO_FUNDO = PRETO
+
+
+
+
+
+
+
+
+
+
 
 BACKGROUND = 'background'
 METEOR_IMG = 'meteor_img'
