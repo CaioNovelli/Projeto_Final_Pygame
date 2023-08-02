@@ -36,7 +36,7 @@ QUADRADO_VERMELHO_IMG = 'vermelho_img'
 QUADRADO_AZUL_IMG = 'azul_img'
 QUADRADO_AMARELO_IMG = 'amarelo_img'
 QUADRADO_VERDE_IMG = 'verde_img'
-TELA_PERDEU = 'perdeu_img'
+
 
 WIDTH = 650
 HEIGHT = 650
@@ -51,7 +51,7 @@ def load_assets():
     assets['tela inicial'] = pygame.image.load('assets/imgs/tela_inicial.png').convert()
     assets['tela inicial'] = pygame.transform.scale(assets['tela inicial'], (WIDTH, HEIGHT))
     assets['tela final'] = pygame.image.load('assets/imgs/tela final perdeu.png').convert()
-    assets['tela final'] = pygame.transform.scale(assets['tela final perdeu.png'], (WIDTH, HEIGHT))
+    assets['tela final'] = pygame.transform.scale(assets['tela final'], (WIDTH, HEIGHT))
     assets[QUADRADO_VERMELHO_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'quadrado vermelho.png')).convert_alpha()
     assets[QUADRADO_VERMELHO_IMG] = pygame.transform.scale(assets[QUADRADO_VERMELHO_IMG], (199, 199))
     assets[QUADRADO_AZUL_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'quadrado azul.png')).convert_alpha()

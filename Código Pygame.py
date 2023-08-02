@@ -130,24 +130,38 @@ while jogando:
 
                 if cor_selecionada != lista_sorteio[num_cliques-1]:
                     print('perdeu!')
-                    jogando = False
+                    estado = 'perdeu'
+                    t_inicial_perdeu = time.time()
 
                 if num_cliques == len(lista_sorteio):
                     estado = 'sorteando'
 
-
-
-            
-            
-            
-            
-
     
+    elif estado == 'perdeu':
+        window.blit(dicionario['tela final'],(0,0))
+        pygame.display.flip()  # Atualiza a tela
+        
+        t_final_perdeu = time.time()
+        tempo_decorrido_perdeu = (t_final_perdeu - t_inicial_perdeu)
 
-    # ----- Gera saídas
+        if tempo_decorrido_perdeu > 2:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    jogando = False
+                    
+                if event.type == pygame.KEYDOWN:
+                    if event.key == 13:
+                        estado = 'tela inicial'
+                    
+
+    pygame.display.flip()# Atualiza a tela
 
     # ----- Atualiza estado do jogo
-    pygame.display.update()  # Mostra o novo frame para o jogador
+    pygame.display.update() # Mostra o novo frame para o jogador
+                 
+
+# ----- Atualiza estado do jogo
+pygame.display.update()  # Mostra o novo frame para o jogador
 
 # ===== Finalização =====
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
