@@ -43,7 +43,7 @@ dicio_infos={
 }
 contador_acertos = 0
 
-lista_sorteio=['azul','verde','azul','amarelo']
+lista_sorteio=[]
 cor_atual=0
 
 # ===== Loop principal =====
@@ -53,6 +53,7 @@ while jogando:
     window.fill((0, 0, 0))  # Preenche com a cor preta
     if estado =='sorteando':
         sorteada = random.choice(list(dicio_infos.keys()))
+        print(f'vai sortear entre {list(dicio_infos.keys())}')
         lista_sorteio.append(sorteada)
         cor_atual=0
         estado = 'tela_preta'
@@ -89,9 +90,12 @@ while jogando:
 
         else:
             estado = 'aguardando_clique'
+            num_cliques=0
+            print (lista_sorteio)
 
     elif estado == 'aguardando_clique':
         window.fill((0, 0, 0))  # Preenche com a cor preta
+        
         for cor,info in dicio_infos.items():
             pygame.draw.rect(window,info['cor'], info['pos'])
 
@@ -105,21 +109,38 @@ while jogando:
                 
                 if 100 <= pos[0] <= 300 and 100 <= pos[1] <= 300:
                     cor_selecionada = 'vermelha'
+                    num_cliques+=1
                     print('vermelho') # cor vermelha esta funcionando
                 elif 350 <= pos[0] <= 550 and 100 <= pos[1] <= 300:
-                    cor_selecionada = 'verde' 
+                    cor_selecionada = 'verde'
+                    num_cliques+=1 
                     print('verde')# cor verde esta funcionando
                 elif 100 <= pos[0] <= 300 and 350 <= pos[1] <= 550:
                     cor_selecionada = 'amarelo'
+                    num_cliques+=1
                     print('amarelo')# cor amarela esta funcionando
                 elif 350 <= pos[0] <= 550 and 350 <= pos[1] <= 550:
                     cor_selecionada = 'azul'
+                    num_cliques+=1
                     print('azul')# cor azul esta funcionando
                 else:
                     continue
 
+            
+
+                if cor_selecionada != lista_sorteio[num_cliques-1]:
+                    print('perdeu!')
+                    jogando = False
+
+                if num_cliques == len(lista_sorteio):
+                    estado = 'sorteando'
 
 
+
+            
+            
+            
+            
 
     
 
