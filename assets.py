@@ -37,6 +37,10 @@ QUADRADO_AZUL_IMG = 'azul_img'
 QUADRADO_AMARELO_IMG = 'amarelo_img'
 QUADRADO_VERDE_IMG = 'verde_img'
 
+SOM_AMBIENTE = 'ambiente_snd'
+DERROTA = 'derrota_snd'
+
+
 WIDTH = 650
 HEIGHT = 650
 
@@ -49,7 +53,12 @@ def load_assets():
     # tela inicial
     assets['tela inicial'] = pygame.image.load('assets/imgs/tela_inicial.png').convert()
     assets['tela inicial'] = pygame.transform.scale(assets['tela inicial'], (WIDTH, HEIGHT))
+<<<<<<< HEAD
     
+=======
+    assets['tela final'] = pygame.image.load('assets/imgs/tela final perdeu.png').convert()
+    assets['tela final'] = pygame.transform.scale(assets['tela final'], (WIDTH, HEIGHT))
+>>>>>>> 4b1bbcea70f19e8fe8260db1765737430877b937
     assets[QUADRADO_VERMELHO_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'quadrado vermelho.png')).convert_alpha()
     assets[QUADRADO_VERMELHO_IMG] = pygame.transform.scale(assets[QUADRADO_VERMELHO_IMG], (199, 199))
     assets[QUADRADO_AZUL_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'quadrado azul.png')).convert_alpha()
@@ -58,6 +67,10 @@ def load_assets():
     assets[QUADRADO_AMARELO_IMG] = pygame.transform.scale(assets[QUADRADO_AMARELO_IMG], (199, 199))
     assets[QUADRADO_VERDE_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'quadrado verde.png')).convert_alpha()
     assets[QUADRADO_VERDE_IMG] = pygame.transform.scale(assets[QUADRADO_VERDE_IMG], (199, 199))
+
+    #sons
+    assets['ambiente_snd'] = pygame.mixer.Sound('assets/imgs/game-music-loop-7-145285.mp3')
+    assets['derrota_snd'] = pygame.mixer.Sound('assets/imgs/kl-peach-game-over-iii-142453.mp3')
     return assets
 
 

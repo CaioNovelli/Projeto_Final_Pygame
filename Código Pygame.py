@@ -49,12 +49,15 @@ cor_atual=0
 # ===== Loop principal =====
 while jogando:
 
-    
+    dicionario['ambiente_snd'].play()
+
+
     window.fill((0, 0, 0))  # Preenche com a cor preta
     if estado =='sorteando':
         sorteada = random.choice(list(dicio_infos.keys()))
         print(f'vai sortear entre {list(dicio_infos.keys())}')
         lista_sorteio.append(sorteada)
+        exibe_normal = True
         cor_atual=0
         estado = 'tela_preta'
 
@@ -78,15 +81,22 @@ while jogando:
             cor = lista_sorteio[cor_atual]
             info = dicio_infos[cor]
 
+            if exibe_normal:
+                pygame.draw.rect(window,info['cor'], info['pos'])  
+            else:
+                pygame.draw.rect(window,(255,255,255), info['pos'])
 
 
-            pygame.draw.rect(window,(100,100,100), info['pos'])        
             t_final = time.time()
-
             tempo_decorrido = (t_final-t_inicial)
-            if tempo_decorrido >1.5:
+            if tempo_decorrido >0.35:
                 t_inicial = t_final
-                cor_atual+=1
+                if exibe_normal:
+                    exibe_normal =False
+                else:
+                    cor_atual+=1
+                    exibe_normal = True
+
 
         else:
             estado = 'aguardando_clique'
@@ -130,24 +140,43 @@ while jogando:
 
                 if cor_selecionada != lista_sorteio[num_cliques-1]:
                     print('perdeu!')
-                    jogando = False
+                    estado = 'perdeu'
+                    t_inicial_perdeu = time.time()
 
                 if num_cliques == len(lista_sorteio):
                     estado = 'sorteando'
 
-
-
-            
-            
-            
-            
-
     
+    elif estado == 'perdeu':
 
-    # ----- Gera saídas
+        dicionario['ambiente_snd'].stop()
+        dicionario['derrota_snd'].play()
+        window.blit(dicionario['tela final'],(0,0))
+        pygame.display.flip()  # Atualiza a tela
+        
+        t_final_perdeu = time.time()
+        tempo_decorrido_perdeu = (t_final_perdeu - t_inicial_perdeu)
+
+        if tempo_decorrido_perdeu > 2:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    jogando = False
+                    
+                if event.type == pygame.KEYDOWN:
+                    if event.key == 13:
+                        lista_sorteio.clear()
+                        dicionario['derrota_snd'].stop()
+                        estado = 'tela inicial'
+                    
+                
+    pygame.display.flip()# Atualiza a tela
 
     # ----- Atualiza estado do jogo
-    pygame.display.update()  # Mostra o novo frame para o jogador
+    pygame.display.update() # Mostra o novo frame para o jogador
+                 
+
+# ----- Atualiza estado do jogo
+pygame.display.update()  # Mostra o novo frame para o jogador
 
 # ===== Finalização =====
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
