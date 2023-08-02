@@ -80,11 +80,11 @@ while jogando:
 
 
 
-            pygame.draw.rect(window,(100,100,100), info['pos'])        
+            pygame.draw.rect(window,(255,255,255), info['pos'])        
             t_final = time.time()
 
             tempo_decorrido = (t_final-t_inicial)
-            if tempo_decorrido >1.5:
+            if tempo_decorrido >0.5:
                 t_inicial = t_final
                 cor_atual+=1
 
