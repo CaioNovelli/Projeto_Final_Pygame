@@ -55,6 +55,7 @@ while jogando:
         sorteada = random.choice(list(dicio_infos.keys()))
         print(f'vai sortear entre {list(dicio_infos.keys())}')
         lista_sorteio.append(sorteada)
+        exibe_normal = True
         cor_atual=0
         estado = 'tela_preta'
 
@@ -78,15 +79,22 @@ while jogando:
             cor = lista_sorteio[cor_atual]
             info = dicio_infos[cor]
 
+            if exibe_normal:
+                pygame.draw.rect(window,info['cor'], info['pos'])  
+            else:
+                pygame.draw.rect(window,(255,255,255), info['pos'])
 
 
-            pygame.draw.rect(window,(255,255,255), info['pos'])        
             t_final = time.time()
-
             tempo_decorrido = (t_final-t_inicial)
-            if tempo_decorrido >0.5:
+            if tempo_decorrido >0.35:
                 t_inicial = t_final
-                cor_atual+=1
+                if exibe_normal:
+                    exibe_normal =False
+                else:
+                    cor_atual+=1
+                    exibe_normal = True
+
 
         else:
             estado = 'aguardando_clique'
