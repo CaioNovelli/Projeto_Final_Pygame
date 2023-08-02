@@ -151,6 +151,7 @@ while jogando:
                     
                 if event.type == pygame.KEYDOWN:
                     if event.key == 13:
+                        lista_sorteio.clear()
                         estado = 'tela inicial'
                     
 
