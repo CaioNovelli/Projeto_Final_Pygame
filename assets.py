@@ -49,6 +49,7 @@ def load_assets():
     # tela inicial
     assets['tela inicial'] = pygame.image.load('assets/imgs/tela_inicial.png').convert()
     assets['tela inicial'] = pygame.transform.scale(assets['tela inicial'], (WIDTH, HEIGHT))
+    
     assets[QUADRADO_VERMELHO_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'quadrado vermelho.png')).convert_alpha()
     assets[QUADRADO_VERMELHO_IMG] = pygame.transform.scale(assets[QUADRADO_VERMELHO_IMG], (199, 199))
     assets[QUADRADO_AZUL_IMG] = pygame.image.load(os.path.join(IMG_DIR, 'quadrado azul.png')).convert_alpha()
