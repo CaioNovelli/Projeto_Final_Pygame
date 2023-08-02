@@ -71,8 +71,8 @@ while jogando:
     elif estado == 'tela_preta':
         window.fill((0, 0, 0))  # Preenche com a cor preta
         for cor,info in dicio_infos.items():
-
             pygame.draw.rect(window,info['cor'], info['pos'])
+
         if cor_atual < len(lista_sorteio):
             cor = lista_sorteio[cor_atual]
             info = dicio_infos[cor]
@@ -90,25 +90,37 @@ while jogando:
         else:
             estado = 'aguardando_clique'
 
-    elif estado == 'aguardado_clique':
+    elif estado == 'aguardando_clique':
+        window.fill((0, 0, 0))  # Preenche com a cor preta
+        for cor,info in dicio_infos.items():
+            pygame.draw.rect(window,info['cor'], info['pos'])
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 jogando = False
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            pos = pygame.mouse.get_pos()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pos = pygame.mouse.get_pos()
 
             # Cor apertada pelo usuario
-            
-            if 100 <= pos[0] <= 300 and 100 <= pos[1] <= 300:
-                cor_selecionada = 'vermelha'
-            elif 350 <= pos[0] <= 550 and 100 <= pos[1] <= 300:
-                cor_selecionada = 'verde'
-            elif 100 <= pos[0] <= 300 and 350 <= pos[1] <= 550:
-                cor_selecionada = 'amarelo'
-            elif 350 <= pos[0] <= 550 and 350 <= pos[1] <= 550:
-                cor_selecionada = 'azul'
-            else:
-                continue
+                
+                if 100 <= pos[0] <= 300 and 100 <= pos[1] <= 300:
+                    cor_selecionada = 'vermelha'
+                    print('vermelho') # cor vermelha esta funcionando
+                elif 350 <= pos[0] <= 550 and 100 <= pos[1] <= 300:
+                    cor_selecionada = 'verde' 
+                    print('verde')# cor verde esta funcionando
+                elif 100 <= pos[0] <= 300 and 350 <= pos[1] <= 550:
+                    cor_selecionada = 'amarelo'
+                    print('amarelo')# cor amarela esta funcionando
+                elif 350 <= pos[0] <= 550 and 350 <= pos[1] <= 550:
+                    cor_selecionada = 'azul'
+                    print('azul')# cor azul esta funcionando
+                else:
+                    continue
+
+
+
+
     
 
     # ----- Gera saídas
