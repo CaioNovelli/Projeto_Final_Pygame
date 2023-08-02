@@ -49,7 +49,9 @@ cor_atual=0
 # ===== Loop principal =====
 while jogando:
 
-    
+    dicionario['ambiente_snd'].play()
+
+
     window.fill((0, 0, 0))  # Preenche com a cor preta
     if estado =='sorteando':
         sorteada = random.choice(list(dicio_infos.keys()))
@@ -146,6 +148,9 @@ while jogando:
 
     
     elif estado == 'perdeu':
+
+        dicionario['ambiente_snd'].stop()
+        dicionario['derrota_snd'].play()
         window.blit(dicionario['tela final'],(0,0))
         pygame.display.flip()  # Atualiza a tela
         
@@ -160,9 +165,10 @@ while jogando:
                 if event.type == pygame.KEYDOWN:
                     if event.key == 13:
                         lista_sorteio.clear()
+                        dicionario['derrota_snd'].stop()
                         estado = 'tela inicial'
                     
-
+                
     pygame.display.flip()# Atualiza a tela
 
     # ----- Atualiza estado do jogo
