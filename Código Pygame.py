@@ -142,6 +142,7 @@ while jogando:
                     print('perdeu!')
                     estado = 'perdeu'
                     t_inicial_perdeu = time.time()
+                    break
 
                 if num_cliques == len(lista_sorteio):
                     estado = 'sorteando'
@@ -152,7 +153,9 @@ while jogando:
         dicionario['ambiente_snd'].stop()
         dicionario['derrota_snd'].play()
         window.blit(dicionario['tela final'],(0,0))
-        pygame.display.flip()  # Atualiza a tela
+        pygame.display.flip()
+        
+          # Atualiza a tela
         
         t_final_perdeu = time.time()
         tempo_decorrido_perdeu = (t_final_perdeu - t_inicial_perdeu)
