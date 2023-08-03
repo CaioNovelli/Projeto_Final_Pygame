@@ -19,3 +19,4 @@ Assim, nosso projeto final, o Genius, foi recriado, recombinando a flexibilidade
 
 
 # Vídeo breve demonstrando o jogo:
+https://youtu.be/_G62GC6JzOU
